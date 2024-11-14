@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator</title>
+    <style>
+        /* Basic styling for the body */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Calculator container styling */
+        .calculator {
+            width: 300px;
+            background-color: #333;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Display styling */
+        .display {
+            width: 100%;
+            height: 60px;
+            background-color: #222;
+            color: #fff;
+            text-align: right;
+            font-size: 2rem;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        /* Buttons grid layout */
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        /* Individual button styling */
+        .button {
+            width: 100%;
+            height: 60px;
+            font-size: 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Styling for number buttons */
+        .button.number {
+            background-color: #555;
+            color: #fff;
+        }
+
+        /* Styling for operator buttons */
+        .button.operator {
+            background-color: #ff5722;
+            color: #fff;
+        }
+
+        /* Clear button styling */
+        .button.clear {
+            background-color: #ff5252;
+            color: #fff;
+            grid-column: span 2;
+        }
+
+        /* Equals button styling */
+        .button.equals {
+            background-color: #4caf50;
+            color: #fff;
+            grid-column: span 2;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculator">
+        <!-- Display screen for the calculator -->
+        <div id="display" class="display">0</div>
+
+        <!-- Buttons layout for calculator -->
+        <div class="buttons">
+            <button class="button clear" onclick="clearDisplay()">C</button>
+            <button class="button operator" onclick="appendOperator('/')">÷</button>
+            <button class="button operator" onclick="appendOperator('*')">×</button>
+
+            <button class="button number" onclick="appendNumber('7')">7</button>
+            <button class="button number" onclick="appendNumber('8')">8</button>
+            <button class="button number" onclick="appendNumber('9')">9</button>
+            <button class="button operator" onclick="appendOperator('-')">−</button>
+
+            <button class="button number" onclick="appendNumber('4')">4</button>
+            <button class="button number" onclick="appendNumber('5')">5</button>
+            <button class="button number" onclick="appendNumber('6')">6</button>
+            <button class="button operator" onclick="appendOperator('+')">+</button>
+
+            <button class="button number" onclick="appendNumber('1')">1</button>
+            <button class="button number" onclick="appendNumber('2')">2</button>
+            <button class="button number" onclick="appendNumber('3')">3</button>
+            <button class="button equals" onclick="calculate()">=</button>
+
+            <button class="button number" onclick="appendNumber('0')">0</button>
+            <button class="button number" onclick="appendNumber('.')">.</button>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript functions for handling calculator logic
+        let display = document.getElementById('display');
+        let currentInput = ''; // Stores current input
+        let operator = '';     // Stores current operator
+        let firstOperand = null; // Stores first operand
+
+        // Function to clear the display and reset values
+        function clearDisplay() {
+            currentInput = '';
+            operator = '';
+            firstOperand = null;
+            display.innerText = '0';
+        }
+
+        // Function to append a number to the current input
+        function appendNumber(number) {
+            if (currentInput === '0' && number !== '.') {
+                currentInput = number;
+            } else {
+                currentInput += number;
+            }
+            display.innerText = currentInput;
+        }
+
+        // Function to handle operator input
+        function appendOperator(op) {
+            if (currentInput === '' && firstOperand !== null) {
+                operator = op;
+                return;
+            }
+            if (firstOperand === null) {
+                firstOperand = parseFloat(currentInput);
+            } else {
+                firstOperand = calculateResult();
+            }
+            operator = op;
+            currentInput = '';
+        }
+
+        // Function to calculate and display the result
+        function calculate() {
+            if (firstOperand === null || operator === '' || currentInput === '') {
+                return;
+            }
+            const result = calculateResult();
+            display.innerText = result;
+            currentInput = result;
+            firstOperand = null;
+            operator = '';
+        }
+
+        // Function to perform the actual calculation based on the operator
+        function calculateResult() {
+            let result;
+            const secondOperand = parseFloat(currentInput);
+            switch (operator) {
+                case '+':
+                    result = firstOperand + secondOperand;
+                    break;
+                case '-':
+                    result = firstOperand - secondOperand;
+                    break;
+                case '*':
+                    result = firstOperand * secondOperand;
+                    break;
+                case '/':
+                    result = secondOperand === 0 ? 'Error' : firstOperand / secondOperand;
+                    break;
+                default:
+                    return currentInput;
+            }
+            return result;
+        }
+    </script>
+
+</body>
+</html>

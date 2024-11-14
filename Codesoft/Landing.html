@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Header Section */
+        header {
+            background-color: #ff5722;
+            padding: 10px;
+            color: #fff;
+            text-align: center;
+        }
+
+        /* Navigation Bar Styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+        }
+        .navbar .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .navbar nav ul {
+            list-style: none;
+            display: flex;
+        }
+        .navbar nav ul li {
+            margin-left: 15px;
+        }
+        .navbar nav ul li a, .navbar .btn {
+            color: #fff;
+            text-decoration: none;
+        }
+        .navbar .btn {
+            background-color: #ff5722;
+            padding: 8px 12px;
+            border-radius: 5px;
+        }
+
+        /* Banner Section Styling */
+        .banner {
+            background: url('https://via.placeholder.com/1920x600') no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 80px 0;
+        }
+        .banner h1 {
+            font-size: 2.5rem;
+        }
+        .banner p {
+            margin: 20px 0;
+            font-size: 1.2rem;
+        }
+        .banner .btn {
+            background-color: #ff5722;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        /* Services Section Styling */
+        .services {
+            display: flex;
+            justify-content: center;
+            padding: 40px;
+            background: linear-gradient(to right, #ff8a65, #ff5252);
+            color: #fff;
+        }
+        .service {
+            text-align: center;
+            padding: 20px;
+            flex: 1;
+        }
+        .service h3 {
+            font-size: 1.5rem;
+        }
+        .service p {
+            margin-top: 10px;
+            font-size: 1rem;
+        }
+
+        /* About Us Section Styling */
+        .about {
+            padding: 40px;
+            text-align: center;
+        }
+        .about h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .about p {
+            font-size: 1rem;
+            margin: 10px 0;
+            color: #666;
+        }
+        .about .btn {
+            background-color: #ff5722;
+            padding: 10px 20px;
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        /* Our Services Section Styling */
+        .our-services {
+            padding: 40px;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        .our-services h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .service-cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .card {
+            width: 200px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .card h4 {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <p>Email: patilvaishnavi9765@gmail.com | Phone: 8073017339</p>
+    </header>
+
+    <!-- Navbar Section -->
+    <div class="navbar">
+        <div class="logo">Landing Page</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Pages</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Testimonials</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <a href="#" class="btn">Request a Consult</a>
+    </div>
+
+    <!-- Banner Section -->
+    <section class="banner">
+        <h1>Creative Digital Agency</h1>
+        <p> ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <a href="#" class="btn">Read More</a>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="service">
+            <h3>Launch Business</h3>
+            <p> ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="service">
+            <h3>Online Support Team</h3>
+            <p> ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="service">
+            <h3>Time Management</h3>
+            <p> ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about">
+        <h2>About Us</h2>
+        <p>15 years, we are passionate about achieving better results for our clients.</p>
+        <p> ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <a href="#" class="btn">Read More</a>
+    </section>
+
+    <!-- Our Services Section -->
+    <section class="our-services">
+        <h2>Our Services</h2>
+        <div class="service-cards">
+            <div class="card">
+                <h4>User Experience</h4>
+            </div>
+            <div class="card">
+                <h4>Creative Design</h4>
+            </div>
+            <div class="card">
+                <h4>Retina Ready</h4>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
